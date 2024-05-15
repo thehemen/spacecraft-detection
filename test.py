@@ -18,7 +18,7 @@ if __name__ == '__main__':
     parser.add_argument('--dataset_cfg', default='spaceship.yaml')
     parser.add_argument('--augment_cfg', default='augment.yaml')
     parser.add_argument('--model_name', default='model.pt')
-    parser.add_argument('--image_name', default='images/0a0ba7d4c31cd8c12e66f3e792a9599f.jpg')
+    parser.add_argument('--image_name', default='images/0bed5655195f1219e15acaa342e07a04.jpg')
     parser.add_argument('--image_size', type=int, default=640)
     parser.add_argument('--bbox_coeff', type=float, default=5.0)
     parser.add_argument('--class_name', default='Spaceship')
@@ -94,6 +94,8 @@ if __name__ == '__main__':
     pred = pred.cpu().detach().numpy()[0]
 
     image_name = args.image_name.split('/')[1]
+    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
     logger.save_image(image_name, image, label, pred, args.class_name)
 
     t5 = timer()

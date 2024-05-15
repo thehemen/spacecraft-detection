@@ -2,7 +2,6 @@ import os
 import cv2
 import glob
 import torch
-# import wandb
 import shutil
 import matplotlib.pyplot as plt
 from engine.misc import get_opencv_bbox
@@ -46,11 +45,6 @@ class Logger:
             with open(f'{self.model_path}/log.txt', 'w') as f:
                 f.write(f'Epoch\tTrain Loss\tTrain Score\tVal Loss\tVal Score\n')
 
-            # wandb.init(
-            #     project='Spacecraft Detector',
-            #     config=config
-            # )
-
             self.__train_loss_history = []
             self.__train_score_history = []
 
@@ -76,9 +70,6 @@ class Logger:
 
         with open(f'{self.model_path}/log.txt', 'a') as f:
             f.write(f'{epoch + 1}\t\t{train_loss:.3f}\t\t{train_score:.3f}\t\t{val_loss:.3f}\t\t{val_score:.3f}\n')
-
-        # d = {'Train Loss': train_loss, 'Train Score': train_score, 'Val Loss': val_loss, 'Val Score': val_score}
-        # wandb.log(d)
 
         plot('Train', 'Loss', self.model_path, self.__train_loss_history)
         plot('Train', 'Score', self.model_path, self.__train_score_history)
