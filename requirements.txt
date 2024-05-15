@@ -1,0 +1,9 @@
+torch
+torchvision
+albumentations
+glob
+scikit-learn
+ruamel.yaml
+PyYaml
+opencv-python
+tqdm

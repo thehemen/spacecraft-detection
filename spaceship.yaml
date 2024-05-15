@@ -1,0 +1,10 @@
+# NASA spasecraft detection challenge dataset 
+# Documentation: https://www.drivendata.org/competitions/260/spacecraft-detection
+
+path: './spacecraft-detection/images/'
+train: train/ # train images (relative to 'path')
+val: val/ # val images (relative to 'path')
+
+# Classes
+names:
+  0: spacecraft0
